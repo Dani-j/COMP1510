@@ -2,3 +2,6 @@
 # COMP-1510-Midterm-Hackathon
 
 Add your full names and student numbers here.
+Team 2
+James (Hang) Liu : A01173804
+Dani (Danfeng) Jin : A01220804
