@@ -1,5 +1,5 @@
 """
-This is the entry function of the game.
+This is the entry file/function of the game.
 
 Authors: James (Hang) Liu, Dani (Danfeng) Jin
 Date: October 23, 2020
@@ -14,6 +14,15 @@ import battle
 
 
 def game_process(game_character, game_map):
+  """
+  Get the command from stdio and process the command
+
+  :param game_character: A list contains the user information
+  :param game_map: A list that is a 5 x 5 matrix
+  :precondition: The game_character and the game_map should both be valid
+  :postcondition: return True if the user type quit or the character has died
+  :return: A boolean, True to end the game, while False to continue the game
+  """
   # Get the direction from user input
   direction = user.get_character_choice("\033[1;34mEnter a direction to go:\033[0m")
 
@@ -53,9 +62,10 @@ def run(game_logic):
   """
   Create the map and the character and then start game.
 
-  :precondition: None
-  :postcondition: Exit if goal has been achieved
-  :return: None
+  :param game_logic: 
+  :precondition: none
+  :postcondition: exit if goal has been achieved
+  :return: none
   """
   # Display the opening message
   message.opening()
