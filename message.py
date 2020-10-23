@@ -41,7 +41,7 @@ def welcome(character_info):
     message containing character name
   :return: four welcome messages
   """
-  print("\033[1;34mWelcome to SUD, %s." % user.get_character_name(character_info)) 
+  print("\033[1;35mWelcome to SUD, %s." % user.get_character_name(character_info))
   print("You're now standing in the center of a dark forest.")
   print("Type 'up', 'down', 'left' or 'right' and press 'Enter' to move.")
   print("If you want to exit, type 'Quit' and press 'Enter'.\033[0m")
@@ -57,7 +57,7 @@ def wrong_direction(character_info):
   :return: a string message
   """
   print("\033[1;31mSorry, %s. You cannot go that way.\033[0m" % user.get_character_name(character_info))
-    
+
 
 def character_hurted(monster_info, amount):
   """
@@ -86,7 +86,7 @@ def monster_hurted(monster_info, amount):
   """
   print(f"\033[1;32mYou slashed the {monster_info[monster.MONSTER_NAME()]}, and it lose {amount} HP\033[0m")
 
- 
+
 
 def monster_appear(monster_info):
   """
@@ -98,7 +98,7 @@ def monster_appear(monster_info):
   :return: a string message
   """
   print(f"\033[1;31mA {monster_info[monster.MONSTER_NAME()]} is looking at you maliciously\033[0m")
-  
+
 
 
 def character_die(monster_info):
@@ -112,7 +112,7 @@ def character_die(monster_info):
   """
   print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} killed you")
   print("GAME OVER\033[0m")
-   
+
 
 
 def monster_die(monster_info):
@@ -122,7 +122,7 @@ def monster_die(monster_info):
   :param monster_info: a list containing monster information
   :precondition: the monster_info must contains a list containing monster information
   :postcondition: print a message showing the monster is killed
-  :return: a string message 
+  :return: a string message
   """
   print(f"\033[1;32mThe {monster_info[monster.MONSTER_NAME()]} has been killed\033[0m")
 

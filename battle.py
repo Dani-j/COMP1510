@@ -69,17 +69,50 @@ def MONSTER_DIE():
 
 def fight_ready():
   """
+  Generate a random integer to prepare for the battle
 
-  :precondition:
-  :postcondition:
-  :return:
+  :precondition: None
+  :postcondition: Return a random integer
+  :return: A random integer
   """
-  # 猜拳扣血
   return random.randint(1, 2)
 
 
+
+
+
+def start(character_info, monster_info, action):
+  """
+  
+
+  :param character_info: a list containing character information
+  :param monster_info: a list containing monster information
+  :param action: a string that is equals to "kill" or anything else
+  :precondition: character_info
+  :postcondition:
+  :return:
+  """
+  battle_result = DRAW_GAME()
+  if "kill" == action:
+    while character_info[user.HEALTH()] > 0 and monster_info[monster.HEALTH()] > 0:
+      character_choice = fight_ready()
+      monster_choice = fight_ready()
+      battle_result = attack(character_choice, monster_choice, character_info, monster_info)
+    if 0 < character_info[user.HEALTH()]:
+      message.character_health(character_info)
+    return battle_result
+  else:
+    if FLEE_FAIL() == random.randint(1, 1):
+      hurt_amout = random.randint(1, 4)
+      user.hurt(character_info, hurt_amout)
+      message.character_hurted(monster_info, hurt_amout)
+      if 0 < character_info[user.HEALTH()]:
+        message.character_health(character_info)
+      return ESCAPED()
+
+
 def main():
-  """Drive the program."""
+  """Test the module"""
   doctest.testmod()
 
 

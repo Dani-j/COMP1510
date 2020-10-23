@@ -22,6 +22,7 @@ def run():
 
 def main():
     """Drive the program."""
+    run()
 
 
 if __name__ == '__main__':

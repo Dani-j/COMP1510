@@ -98,7 +98,7 @@ def create_character():
   character_info = []
   character_name = input("\033[1;34mPlease input your character name:\033[0m").strip()
   if not character_name:  # when the character only enter space(s)
-    print("please enter at list one character.")
+    print("please enter at least one character.")
     create_character()
   character_info.insert(CHARACTERNAME(), character_name)  # put character name in the character_info list
   character_info.insert(HEALTH(), 10)  # put character HP in the character_info list, whose initial value is 10
@@ -212,7 +212,7 @@ def get_character_choice(tip):
 
 
 def main():
-  """Drive the program."""
+  """Test the module"""
   doctest.testmod(verbose=True)
 
 

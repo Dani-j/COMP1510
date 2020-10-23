@@ -15,7 +15,7 @@ def MONSTER_NAME():
   Return the index of monster name in the monster information list.
 
   :precondition: none
-  :postcondition: return the constant index where the moster name is stored 
+  :postcondition: return the constant index where the moster name is stored
     in the moster information list
   :return: an integer, the constant index of monster name
   """
@@ -27,7 +27,7 @@ def HEALTH():
   Return the index of monster HP in the monster information list.
 
   :precondition: none
-  :postcondition: return the constant index where the moster HP is stored 
+  :postcondition: return the constant index where the moster HP is stored
     in the moster information list
   :return: an integer, the constant index of monster HP
   """
@@ -45,6 +45,17 @@ def MONSTER_EXISTS():
   return 1
 
 
+def MAX_HEALTH():
+  """
+  Return the maximum health point of a monster.
+
+  :precondition: None
+  :postcondition: Return the maximum health point of a monster
+  :return: An integer, the the maximum health point of a monster
+  """
+  return 5
+
+
 def create_monster():
   """
   Create a monster with random name randomly
@@ -54,12 +65,12 @@ def create_monster():
   :return: monster name or none
   """
   # if MONSTER_EXISTS() != random.randint(1, 25):
-  x = random.randint(1, 2) 
+  x = random.randint(1, 2)
   if MONSTER_EXISTS() != x:  # x != 1, a monster won't appear
     return None
 
   names = ["Dragon", "Zombie", "Python", "Jack the Ripper"]  # will be more monsters if we have more time
-  monster = random.choice(names)  # randomly generate a monster
+  monster = [random.choice(names), MAX_HEALTH()]  # randomly generate a monster
   return monster
 
 
@@ -75,11 +86,11 @@ def hurt(monster_info, amount):
   :return: Ture or False, showing if the moster HP is smaller than 0 or not
 
   >>> monster_info = ["python", 10]
-  >>> amount = 2 
+  >>> amount = 2
   >>> hurt(monster_info, amount)
   True
   >>> monster_info = ["python", 1]
-  >>> amount = 2 
+  >>> amount = 2
   >>> hurt(monster_info, amount)
   False
   """
