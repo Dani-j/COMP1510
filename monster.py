@@ -11,87 +11,87 @@ import doctest
 
 
 def MONSTER_NAME():
-    """
-    Return the index of monster name in the monster information list.
+  """
+  Return the index of monster name in the monster information list.
 
-    :precondition: none
-    :postcondition: return the constant index where the moster name is stored 
-      in the moster information list
-    :return: an integer, the constant index of monster name
-    """
-    return 0
+  :precondition: none
+  :postcondition: return the constant index where the moster name is stored 
+    in the moster information list
+  :return: an integer, the constant index of monster name
+  """
+  return 0
 
 
 def HEALTH():
-    """
-    Return the index of monster HP in the monster information list.
+  """
+  Return the index of monster HP in the monster information list.
 
-    :precondition: none
-    :postcondition: return the constant index where the moster HP is stored 
-      in the moster information list
-    :return: an integer, the constant index of monster HP
-    """
-    return 1
+  :precondition: none
+  :postcondition: return the constant index where the moster HP is stored 
+    in the moster information list
+  :return: an integer, the constant index of monster HP
+  """
+  return 1
 
 
 def MONSTER_EXISTS():
-    """
-    Return if monster exists
+  """
+  Return if monster exists
 
-    :precondition: none
-    :postcondition: return the a constant integer showing if the monster exists or not
-    :return: an integer, determine if a monster exists
-    """
-    return 1
+  :precondition: none
+  :postcondition: return the a constant integer showing if the monster exists or not
+  :return: an integer, determine if a monster exists
+  """
+  return 1
 
 
 def create_monster():
-    """
-    Create a monster with random name randomly
+  """
+  Create a monster with random name randomly
 
-    :precondition: none
-    :postcondition: return a random monster name or return nothing
-    :return: monster name or none
-    """
-    # if MONSTER_EXISTS() != random.randint(1, 25):
-    x = random.randint(1, 2) 
-    if MONSTER_EXISTS() != x:  # x != 1, a monster won't appear
-        return None
+  :precondition: none
+  :postcondition: return a random monster name or return nothing
+  :return: monster name or none
+  """
+  # if MONSTER_EXISTS() != random.randint(1, 25):
+  x = random.randint(1, 2) 
+  if MONSTER_EXISTS() != x:  # x != 1, a monster won't appear
+    return None
 
-    names = ["Dragon", "Zombie", "Python", "Jack the Ripper"]  # will be more monsters if we have more time
-    monster = random.choice(names)  # randomly generate a monster
-    return monster
+  names = ["Dragon", "Zombie", "Python", "Jack the Ripper"]  # will be more monsters if we have more time
+  monster = random.choice(names)  # randomly generate a monster
+  return monster
 
 
 def hurt(monster_info, amount):
-    """
-    Decrease the monster HP and check if monster HP is smaller than 0 or not.
+  """
+  Decrease the monster HP and check if monster HP is smaller than 0 or not.
 
-    :param monster_info: a list where stored the monster information
-    :param amount: the amount of HP that is decreased by the character's attack
-    :precondition: monster_info is a list containing the monster information,
-      amount is a integer means the amount of HP that would be decreased
-    :postcondition: return a booleen value showing the status of monster HP
-    :return: Ture or False, showing if the moster HP is smaller than 0 or not
+  :param monster_info: a list where stored the monster information
+  :param amount: the amount of HP that is decreased by the character's attack
+  :precondition: monster_info is a list containing the monster information,
+    amount is a integer means the amount of HP that would be decreased
+  :postcondition: return a booleen value showing the status of monster HP
+  :return: Ture or False, showing if the moster HP is smaller than 0 or not
 
-    >>> monster_info = ["python", 10]
-    >>> amount = 2 
-    >>> hurt(monster_info, amount)
-    True
-    >>> monster_info = ["python", 1]
-    >>> amount = 2 
-    >>> hurt(monster_info, amount)
-    False
-    """
-    # return False if character is dead
-    monster_info[HEALTH()] -= amount
-    return monster_info[HEALTH()] <= 0
+  >>> monster_info = ["python", 10]
+  >>> amount = 2 
+  >>> hurt(monster_info, amount)
+  True
+  >>> monster_info = ["python", 1]
+  >>> amount = 2 
+  >>> hurt(monster_info, amount)
+  False
+  """
+  # return False if character is dead
+  monster_info[HEALTH()] -= amount
+  return monster_info[HEALTH()] <= 0
 
 
 def main():
-    """Test the module."""
-    doctest.testmod()
+  """Test the module."""
+  doctest.testmod()
 
 
 if __name__ == '__main__':
-    main()
+  main()

@@ -11,10 +11,10 @@ import game
 
 
 def main():
-    """Drives the program."""
-    game.run()
+  """Drives the program."""
+  game.run()
 
 
 if __name__ == "__main__":
-    main()
+  main()
 
