@@ -17,18 +17,18 @@ def CHARACTERNAME():
 
   :precondition: None
   :postcondition: Return the index where the character name is stored in the character_info list
-  :return: An integer, the index of the character name in a character information list
+  :return: An integer, the index of the character name in the character information list
   """
   return 0
 
 
 def HEALTH():
   """
-  Return the index of health point element in a character information list.
+  Return the index of health points in the character information list.
 
-  :precondition: None
-  :postcondition: Return the index where the health point is stored in the character_info list
-  :return: An integer, the index of the health point in a character information list
+  :precondition: none
+  :postcondition: return 1, the index where the health points is stored in the character_info list
+  :return: an integer, the index of the health points in a character information list
   """
   return 1
 
@@ -37,20 +37,20 @@ def POSITION():
   """
   Return the index of the position element in a character information list.
 
-  :precondition: None
-  :postcondition: Return the index where the position element is stored in the character_info list
-  :return: An integer, the index of the position in a character information list
+  :precondition: none
+  :postcondition: return the index where the position element is stored in the character_info list
+  :return: an integer, the index of the position in a character information list
   """
   return 2
 
 
 def MAX_HEALTH():
   """
-  Return the maximum health point of a character.
+  Return the maximum health points of a character.
 
-  :precondition: None
-  :postcondition: Return the maximum health point of a character
-  :return: An integer, the the maximum health point of a character
+  :precondition: none
+  :postcondition: return the maximum health points of a character
+  :return: an integer, the the maximum health points of a character
   """
   return 10
 
@@ -59,10 +59,10 @@ def get_character_name(character_info):
   """
   Get the character name from a character information list.
 
-  :param character_info: A list that contains a character information
-  :precondition: The character_info must contains a list contains character information
-  :postcondition: Return the correct character name
-  :return: A string, represents the character name
+  :param character_info: a list that contains character information
+  :precondition: the character_info must contain a list of character information
+  :postcondition: return the correct character name
+  :return: a string, represents the character name
 
   >>> character_info = ["James", 10, [1, 2]]
   >>> get_character_name(character_info)
@@ -73,12 +73,12 @@ def get_character_name(character_info):
 
 def get_character_position(character_info):
   """
-  Return the character coordination
+  Return the character coordinates.
 
-  :param character_info: A list that contains a character information
-  :precondition: The character_info must contains a list contains character information
-  :postcondition: Return the correct character coordination
-  :return: A list contains the character coordination
+  :param character_info: a list that contains character information
+  :precondition: the character_info must contain a list of character information
+  :postcondition: return the correct character coordinates
+  :return: a list contains the character coordinates
 
   >>> character_info = ["DJ", 10, [1, 2]]
   >>> get_character_position(character_info)
@@ -89,51 +89,54 @@ def get_character_position(character_info):
 
 def create_character():
   """
-  Prompt the user to create the character profile which contains name, health point and position
+  Prompt the user to create the character profile which contains name, health point and position.
 
-  :precondition: None
-  :postcondition: Return a list contains character information
-  :return: A list contains character information
+  :precondition: none
+  :postcondition: return a list containing character information
+  :return: a list containing character information
   """
   character_info = []
   character_name = input("\033[1;34mNow, tell me what's your name:\033[0m").strip()
   if "quit" == character_name:
     return None
-  character_info.insert(CHARACTERNAME(), character_name)  # put character name in the character_info list
-  character_info.insert(HEALTH(), 10)  # put character HP in the character_info list, whose initial value is 10
-  character_info.insert(POSITION(), [2, 2])  # put character position in the list, the initial position is [2, 2]
-
+  # put character name in the character_info list
+  character_info.insert(CHARACTERNAME(), character_name)  
+  # put character healh points in the character_info list, whose initial value is 10
+  character_info.insert(HEALTH(), 10)  
+  # put character position in the list, the initial position is [2, 2]
+  character_info.insert(POSITION(), [2, 2])  
+  
   message.welcome(character_info)  # display welcome messages
-  map.print_map(character_info[POSITION()]) # display the map
+  map.print_map(character_info[POSITION()])  # display the map
 
   return character_info
 
 
 def heal(character_info):
   """
-  Increase 2 helath point for the character until character health is 10.
+  Increase 2 helath points for the character (maximum defined by MAX_HEALTH).
 
-  :param character_info: A list that contains character information
-  :precondition: The character_info must contains correct character information
-  :postcondition: Update the character health point correctly
-  :return: None
+  :param character_info: a list that contains character information
+  :precondition: the character_info must contain correct character information
+  :postcondition: update the character health points correctly
+  :return: none
 
   >>> character_info = ["James", 7, [1, 2]]
   >>> heal(character_info)
-  >>> character_info[HEALTH]
+  >>> character_info[HEALTH()]
   9
   >>> heal(character_info)
-  >>> character_info[HEALTH]
+  >>> character_info[HEALTH()]
   10
   >>> heal(character_info)
-  >>> character_info[HEALTH]
+  >>> character_info[HEALTH()]
   10
   """
   # Add 2 health point first
   character_info[HEALTH()] += 2
 
   if character_info[HEALTH()] > MAX_HEALTH():
-    # The character health point cannot be greater than 10
+    # The character health points cannot be greater than MAX_HEALTH()
     character_info[HEALTH()] = MAX_HEALTH()
 
 
@@ -141,11 +144,11 @@ def hurt(character_info, amount):
   """
   Decrease the character health point and check if the character is dead.
 
-  :param character_info: A list that contains character information
-  :param amount: The amount of health should be decreased
-  :precondition: The character_info must contains correct character information,
+  :param character_info: a list that contains character information
+  :param amount: the amount of health should be decreased
+  :precondition: the character_info must contain correct character information,
     the amount must be a positive integer
-  :postcondition: Change character health point and return the charactor status
+  :postcondition: change character health point and return the charactor status
   :return: True or False
 
   >>> character_info = ["James", 5, [1, 2]]
@@ -166,13 +169,13 @@ def move(character_info, direction, game_map):
   """
   Try to change the character's position and check if the direction is right.
 
-  :param character_info: A list that contains character information
-  :param direction: A string represent the direction chosen by the user
-  :param game_map: A map list that is a 5 x 5 matrix
-  :precondition: The character_info must contains correct character information;
+  :param character_info: a list that contains character information
+  :param direction: a string represent the direction chosen by the user
+  :param game_map: a map list that has 25 positions, which are lists
+  :precondition: the character_info must contains correct character information;
     The direction must be "left", "right", "up" or down;
     The game_map must be a list that is a 5 x 5 matrix
-  :postcondition: Change character position if possible and return the result
+  :postcondition: change character position if possible and return the result
   :return: A boolean values shows if the direction is valid
 
   >>> character_info = ["James", 5, [0, 0]]

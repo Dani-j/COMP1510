@@ -93,25 +93,28 @@ def attack(character_choice, monster_choice, character_info, monster_info):
   :postcondition: return the battle result represented by an integer in [0, 1, 2]
   :return: an integer in [0, 1, 2], which is the battle result
   """
+  # Define the HP should be decrased
+  hurt_amount = random.randint(1, 6)
+  
   if character_choice < monster_choice:  # compare numbers, the bigger the number, the stronger the attack
-    message.character_hurted(monster_info, monster_choice)  #  tell the user the character was hurt by which monster, and by how much
+    message.character_hurted(monster_info, hurt_amount)  #  tell the user the character was hurt by which monster, and by how much
 
-    if user.hurt(character_info, monster_choice):  
+    if user.hurt(character_info, hurt_amount):
       # True when the character died (i.e. character health <= 0)
-      message.character_die(monster_info) 
+      message.character_die(monster_info)
 
       return CHARACTER_DIE()  # the battle result is that the character was died
-  elif character_choice > monster_choice: 
-    message.monster_hurted(monster_info, character_choice) 
+  elif character_choice > monster_choice:
+    message.monster_hurted(monster_info, hurt_amount)
 
-    if monster.hurt(monster_info, character_choice):  
+    if monster.hurt(monster_info, hurt_amount):
       # True when the monster is dead (i.e. monster health <= 0)
       message.monster_die(monster_info)
-      
-      return MONSTER_DIE()  # the battle result is that the monster died 
+
+      return MONSTER_DIE()  # the battle result is that the monster died
   else:  # when both attacks are equally strong (i.e. numbers are same)
-    message.monster_hurted(monster_info, character_choice) 
-    
+    message.monster_hurted(monster_info, 0)
+
     return DRAW_GAME()  # the battle result is a draw
 
 
