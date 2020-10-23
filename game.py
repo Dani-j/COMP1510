@@ -1,8 +1,8 @@
 """
-(Description:)
+This is the entry function of the game.
 
 Authors: James (Hang) Liu, Dani (Danfeng) Jin
-Date: October 23, 2020D
+Date: October 23, 2020
 """
 
 
@@ -14,7 +14,7 @@ import battle
 
 
 def game_process(game_character, game_map):
-  # Get the direction from yser input
+  # Get the direction from user input
   direction = user.get_character_choice("\033[1;34mEnter a direction to go:\033[0m")
 
   if not direction:
@@ -36,12 +36,12 @@ def game_process(game_character, game_map):
       # Display a hint if a monster has been created
       message.monster_appear(game_monster)
 
-      # Wait for user choice (kill or flee away)
+      # Wait for user choice (kill or flee)
       action = user.get_character_choice(
         "\033[1;34mType Kill to attack, type anything else to flee:\033[0m")
       
       if not action or battle.CHARACTER_DIE() == battle.start(game_character, game_monster, action):
-        # If user type quit of the character has died, return True to end the loop
+        # If user type quit or the character has died, return True to end the loop
         return True
   else:
     # If user cannot go to the direction, show a hint and return
@@ -51,7 +51,7 @@ def game_process(game_character, game_map):
 
 def run(game_logic):
   """
-  Create the map and the character and then start game
+  Create the map and the character and then start game.
 
   :precondition: None
   :postcondition: Exit if goal has been achieved

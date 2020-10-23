@@ -172,7 +172,7 @@ def move(character_info, direction, game_map):
   False
   """
   # Get the previous position from the character_info
-  position = get_character_position(character_info)
+  position = get_character_position(character_info)[:]
 
   # Move
   if "left" == direction:
