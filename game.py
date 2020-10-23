@@ -84,7 +84,6 @@ def run(game_logic):
     goal_achieved = game_logic(game_character, game_map)
 
 
-
 def main():
   """Test the module"""
   run()

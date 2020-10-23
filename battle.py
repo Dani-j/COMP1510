@@ -22,6 +22,7 @@ def FLEE_FAIL():
   """
   return 1
 
+
 def ESCAPED():
   """
   A constant integer that represents the charactor has eacaped from a battle.

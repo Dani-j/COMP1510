@@ -117,7 +117,6 @@ def monster_appear(monster_info):
   print(f"\033[1;31mA {monster_info[monster.MONSTER_NAME()]} is looking at you maliciously\033[0m")
 
 
-
 def character_die(monster_info):
   """
   Tell the user the character was killed
@@ -131,7 +130,6 @@ def character_die(monster_info):
   print("GAME OVER\033[0m")
 
 
-
 def monster_die(monster_info):
   """
   Tell the user the monster was killed
@@ -142,7 +140,6 @@ def monster_die(monster_info):
   :return: a string message
   """
   print(f"\033[1;32mThe {monster_info[monster.MONSTER_NAME()]} has been killed\033[0m")
-
 
 
 def character_health(character_info):
