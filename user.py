@@ -126,8 +126,24 @@ def heal(character_info):
         # The character health point cannot be greater than 10
         character_info[HEALTH()] = MAX_HEALTH()
 
+
 def hurt(character_info, amount):
-  return
+    """
+    Decrease the character health point and check if the character is dead.
+
+    :param character_info: A list that contains character information
+    :param amount: The amount of health should be decreased
+    :precondition: The character_info must contains correct character information, 
+      the amount must be a positive integer
+    :postcondition: Change character health point and return the charactor status
+    :return: True or False
+    """
+    # Decrase specific amount of health point
+    character_info[HEALTH()] -= amount
+
+    # Return False if character is dead
+    return character_info[HEALTH()] <= 0
+
 
 def move(character_info, direction, game_map):
   return
@@ -135,6 +151,7 @@ def move(character_info, direction, game_map):
 
 def get_character_choice(tip):
   return
+
 
 def main():
     """Drive the program."""

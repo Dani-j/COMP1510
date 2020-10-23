@@ -29,6 +29,7 @@ def welcome(character_info):
 
 def wrong_direction(character_info):
     """
+    Tell the users that they input wrong direction.
 
     :param character_info: a list containing character information
     :precondition: the character_info must contains a list containing character information
@@ -39,6 +40,19 @@ def wrong_direction(character_info):
     
 
 def character_hurted(monster_info, amount):
+    """
+    Tell the user that the character was hurt, how much and by whom.
+
+    :param monster_info: a list containing character information
+    :param amount: a number showing how much the character was hurt
+    :precondition: the character_info must contains a list containing character information,
+        the number must be an positive integer that is bigger than 0
+    :postcondition: Display a message telling the character was hurt, how much and by whom
+    :return: a string message
+    """
+    print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} bite you, and you lose {amount} HP\033[0m")
+
+
    
 
 
