@@ -93,11 +93,13 @@ def attack(character_choice, monster_choice, character_info, monster_info):
   :postcondition: return the battle result represented by an integer in [0, 1, 2]
   :return: an integer in [0, 1, 2], which is the battle result
   """
-  # Define the HP should be decrased
+  # define the health points should be decrased
   hurt_amount = random.randint(1, 6)
-  
-  if character_choice < monster_choice:  # compare numbers, the bigger the number, the stronger the attack
-    message.character_hurted(monster_info, hurt_amount)  #  tell the user the character was hurt by which monster, and by how much
+
+  # compare numbers, the bigger the number, the stronger the attack
+  if character_choice < monster_choice:  
+    #  tell the user the character was hurt by which monster, and by how much
+    message.character_hurted(monster_info, hurt_amount)  
 
     if user.hurt(character_info, hurt_amount):
       # True when the character died (i.e. character health <= 0)
@@ -135,9 +137,10 @@ def start(character_info, monster_info, action):
   """
   battle_result = DRAW_GAME()  # the initial battle result is 0
   if "kill" == action: 
+    # keep fighting until one of character and monster died
     while character_info[user.HEALTH()] > 0 and monster_info[monster.HEALTH()] > 0:
-      # keep fighting until one of character and monster died
-      character_choice = fight_ready()  # random number showing how strong the character's attack is
+      # random number showing how strong the character's attack is
+      character_choice = fight_ready()
       monster_choice = fight_ready() 
       battle_result = attack(character_choice, monster_choice, character_info, monster_info) 
       #return battle result after one round of fighting
@@ -147,11 +150,13 @@ def start(character_info, monster_info, action):
       message.character_health(character_info)
 
     return battle_result
+
   else:  # when the user chose to flee
     if FLEE_FAIL() == random.randint(1, 10):  # the chance of being attacked while fleeing is 1/10
       hurt_amout = random.randint(1, 4)  # amount of damage done by the monster is a random integer in [1, 4]
       user.hurt(character_info, hurt_amout)  # decrease character health point
-      message.character_hurted(monster_info, hurt_amout)  # tell the user who attacted the character, and by how much
+      # tell the user who attacted the character, and by how much
+      message.character_hurted(monster_info, hurt_amout)  
       
       if 0 < character_info[user.HEALTH()]: 
         # send the user the current health points if the character is still alive (i.e. health point > 0)
