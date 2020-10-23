@@ -74,7 +74,7 @@ def fight_ready():
   :postcondition: Return a random integer
   :return: A random integer
   """
-  return random.randint(1, 2)
+  return random.randint(1, 20)
 
 
 def attack(character_choice, monster_choice, character_info, monster_info):
@@ -96,14 +96,16 @@ def attack(character_choice, monster_choice, character_info, monster_info):
   if character_choice < monster_choice:  # compare numbers, the bigger the number, the stronger the attack
     message.character_hurted(monster_info, monster_choice)  #  tell the user the character was hurt by which monster, and by how much
 
-    if user.hurt(character_info, monster_choice):  # True when the character died (i.e. character health <= 0)
+    if user.hurt(character_info, monster_choice):  
+      # True when the character died (i.e. character health <= 0)
       message.character_die(monster_info) 
 
       return CHARACTER_DIE()  # the battle result is that the character was died
   elif character_choice > monster_choice: 
     message.monster_hurted(monster_info, character_choice) 
 
-    if monster.hurt(monster_info, character_choice):  # True when the monster is dead (i.e. monster health <= 0)
+    if monster.hurt(monster_info, character_choice):  
+      # True when the monster is dead (i.e. monster health <= 0)
       message.monster_die(monster_info)
       
       return MONSTER_DIE()  # the battle result is that the monster died 
@@ -118,14 +120,13 @@ def start(character_info, monster_info, action):
   Exicute Kill or flee action, and return the battle or flee result.
 
   The return value, which is an integer, reprents the battle or flee result, integer 
-    in [0, 1, 2] is result of battle, integer that is equals to 99 means the character
-    fled
+    in [0, 1, 2] is result of battle, 99 means the character fled
 
   :param character_info: a list containing character information
   :param monster_info: a list containing monster information
-  :param action: a string that is equals to "kill" or anything else
-  :precondition: the character_info must contains a list containing character information, 
-    the monster_info must contains a list containing monster information, and action must be a string
+  :param action: a string represents the action
+  :precondition: the character_info must contain a list of character information, 
+    the monster_info must contain a list of monster information, and action must be a string
   :postcondition: return a integer in [0, 1, 2, 99] representing the fighting result or flee result
   :return: a integer in [0, 1, 2, 99] representing the battle result or flee result
   """
@@ -144,13 +145,13 @@ def start(character_info, monster_info, action):
 
     return battle_result
   else:  # when the user chose to flee
-    if FLEE_FAIL() == random.randint(1, 1):  # the chance of got attacked when flee is 1/1
-      hurt_amout = random.randint(1, 4)  # the amount of hurt by the monster is random in range [1, 4]
-      user.hurt(character_info, hurt_amout) # decrease character health point
-      message.character_hurted(monster_info, hurt_amout) # send the user who attacted the character, and how much
+    if FLEE_FAIL() == random.randint(1, 10):  # the chance of being attacked while fleeing is 1/10
+      hurt_amout = random.randint(1, 4)  # amount of damage done by the monster is a random integer in [1, 4]
+      user.hurt(character_info, hurt_amout)  # decrease character health point
+      message.character_hurted(monster_info, hurt_amout)  # tell the user who attacted the character, and by how much
       
       if 0 < character_info[user.HEALTH()]: 
-        # send the user the current health points if the user if still alive (i.e. health point > 0)
+        # send the user the current health points if the character is still alive (i.e. health point > 0)
         message.character_health(character_info)
       
-      return ESCAPED()  # return positive numbr that means the character fled
+      return ESCAPED()  # return positive number that means the character fled

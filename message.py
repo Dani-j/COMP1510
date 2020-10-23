@@ -59,10 +59,10 @@ def welcome(character_info):
   print("\033[1;35mWelcome to the Kingdom of Far Far Away, %s." % user.get_character_name(character_info))
   print("You're now standing in the center of a dark forest.")  
   print("Type 'up', 'down', 'left' or 'right' and press 'Enter' to move.")
-  print("Watch out for your footsteps, it may attract unknown monsters.")
-  print("If you are scared, type 'Quit' and press 'Enter'.\033[0m")
+  print("If you are scared, type 'Quit' and press 'Enter'.")
+  print("Watch out for your footsteps, it may attract unknown monsters.\033[0m")
   print("")
-  print("However, you hear nothing exept your heart beat.")
+  print("However, you hear nothing except your own heartbeat.")
 
 
 def wrong_direction(character_info):

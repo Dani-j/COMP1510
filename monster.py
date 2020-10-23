@@ -64,9 +64,7 @@ def create_monster():
   :postcondition: return a random monster name or return nothing
   :return: monster name or none
   """
-  # if MONSTER_EXISTS() != random.randint(1, 25):
-  x = random.randint(1, 2)
-  if MONSTER_EXISTS() != x:  # x != 1, a monster won't appear
+  if MONSTER_EXISTS() != random.randint(1, 25):  # If x != 1, a monster won't appear
     return None
 
   names = ("Dragon", "Zombie", "Python", "Jack the Ripper")  # will be more monsters if we have more time
