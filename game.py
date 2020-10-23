@@ -62,7 +62,7 @@ def run(game_logic):
   """
   Create the map and the character and then start game.
 
-  :param game_logic: 
+  :param game_logic: a callback function to process the game logic
   :precondition: none
   :postcondition: exit if goal has been achieved
   :return: none

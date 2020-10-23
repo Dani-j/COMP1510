@@ -117,6 +117,17 @@ def heal(character_info):
   :precondition: The character_info must contains correct character information
   :postcondition: Update the character health point correctly
   :return: None
+
+  >>> character_info = ["James", 7, [1, 2]]
+  >>> heal(character_info)
+  >>> character_info[HEALTH]
+  9
+  >>> heal(character_info)
+  >>> character_info[HEALTH]
+  10
+  >>> heal(character_info)
+  >>> character_info[HEALTH]
+  10
   """
   # Add 2 health point first
   character_info[HEALTH()] += 2

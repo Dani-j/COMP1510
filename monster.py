@@ -24,64 +24,66 @@ def MONSTER_NAME():
 
 def HEALTH():
   """
-  Return the index of monster HP in the monster information list.
+  Return the index of monster health points in the monster information list.
 
   :precondition: none
-  :postcondition: return the constant index where the moster HP is stored
-    in the moster information list
-  :return: an integer, the constant index of monster HP
+  :postcondition: return 1, the constant index where the monster health points 
+    is stored in the monster information list
+  :return: an integer, the constant index of monster health points
   """
   return 1
 
 
 def MONSTER_EXISTS():
   """
-  Return if monster exists
+  Return 1 when monster exists.
 
   :precondition: none
-  :postcondition: return the a constant integer showing if the monster exists or not
-  :return: an integer, determine if a monster exists
+  :postcondition: return 1, a constant integer showing if the monster exists
+  :return: an integer, determine a monster exists
   """
   return 1
 
 
 def MAX_HEALTH():
   """
-  Return the maximum health point of a monster.
+  Return the maximum health points of a monster.
 
-  :precondition: None
-  :postcondition: Return the maximum health point of a monster
-  :return: An integer, the the maximum health point of a monster
+  :precondition: none
+  :postcondition: return 5, the maximum health points of a monster
+  :return: an integer, the maximum health points of a monster
   """
   return 5
 
 
 def create_monster():
   """
-  Create a monster with random name randomly
+  Create a monster with random name randomly.
 
   :precondition: none
-  :postcondition: return a random monster name or return nothing
+  :postcondition: return a random monster name or return none
   :return: monster name or none
   """
-  if MONSTER_EXISTS() != random.randint(1, 25):  # If x != 1, a monster won't appear
+  if MONSTER_EXISTS() != random.randint(1, 25): 
+    # If x != 1, a monster won't appear
     return None
 
   names = ("Dragon", "Zombie", "Python", "Werewolf", "Ghost", "Vampire")
-  monster = [random.choice(names), MAX_HEALTH()]  # randomly generate a monster
+  monster = [random.choice(names), MAX_HEALTH()]  
+  # randomly generate a monster, and assign the maximun health to the monster
   return monster
 
 
 def hurt(monster_info, amount):
   """
-  Decrease the monster HP and check if monster HP is smaller than 0 or not.
+  Decrease the monster health points and check if monster health points is smaller than 0.
 
-  :param monster_info: a list where stored the monster information
-  :param amount: the amount of HP that is decreased by the character's attack
-  :precondition: monster_info is a list containing the monster information,
-    amount is a integer means the amount of HP that would be decreased
-  :postcondition: return a booleen value showing the status of monster HP
-  :return: Ture or False, showing if the moster HP is smaller than 0 or not
+  :param monster_info: a list storing the monster information
+  :param amount: the amount of health points that is decreased by the character's attack
+  :precondition: monster_info is a list containing the monster information, amount is 
+    an integer meaning the amount of health points that should be decreased
+  :postcondition: return a booleen value showing the status of monster health points
+  :return: Ture or False, showing if the moster health points <= 0
 
   >>> monster_info = ["python", 10]
   >>> amount = 2
@@ -92,7 +94,7 @@ def hurt(monster_info, amount):
   >>> hurt(monster_info, amount)
   False
   """
-  # return False if character is dead
+  # return False if monster is dead
   monster_info[HEALTH()] -= amount
   return monster_info[HEALTH()] <= 0
 
