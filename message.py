@@ -35,9 +35,9 @@ def opening():
   """
   Display opening message.
 
-  :precondition: None
-  :postcondition: Dispaly an opening message
-  :return: None
+  :precondition: none
+  :postcondition: dispaly an opening string message
+  :return: none
   """
   print("\033[1;35mOnce upon a time, there is a Kingdom of far far away.")
   print("One day, the princess of the kingdom was taken away by the devil.")
@@ -51,8 +51,8 @@ def welcome(character_info):
   Display welcome message.
 
   :param character_info: a list containing character information
-  :precondition: the character_info must contains a list containing character information
-  :postcondition: return four welcome meessages in special color, the first
+  :precondition: the character_info must contain a list containing character information
+  :postcondition: return four welcome string messages in special color, the first
     message containing character name
   :return: four welcome messages
   """
@@ -67,11 +67,11 @@ def welcome(character_info):
 
 def wrong_direction(character_info):
   """
-  Tell the users that they input wrong direction.
+  Tell the user that they input wrong direction.
 
   :param character_info: a list containing character information
-  :precondition: the character_info must contains a list containing character information
-  :postcondition: display a message telling the user typed a wrong direction
+  :precondition: the character_info must contain a list containing character information
+  :postcondition: display a string message telling the user typed a wrong direction
   :return: a string message
   """
   print("\033[1;31mSorry, %s. You cannot go that way.\033[0m" % user.get_character_name(character_info))
@@ -79,13 +79,13 @@ def wrong_direction(character_info):
 
 def character_hurted(monster_info, amount):
   """
-  Tell the user that the character was hurt, how much and by whom.
+  Tell the user that the character was hurt, by how much and by whom.
 
   :param monster_info: a list containing monster information
   :param amount: a number showing how much the character was hurt
-  :precondition: the monster_info must contains a list containing monster information,
+  :precondition: the monster_info must contain a list containing monster information,
     the number must be an positive integer that is bigger than 0
-  :postcondition: Display a message telling the character was hurt, how much and by whom
+  :postcondition: display a string message telling the user the character was hurt, by how much and by whom
   :return: a string message
   """
   print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} bite you, and you lose {amount} HP\033[0m")
@@ -93,13 +93,13 @@ def character_hurted(monster_info, amount):
 
 def monster_hurted(monster_info, amount):
   """
-  Display the specific monster that is hurt by the character, and how much.
+  Display the specific monster that is hurt by the character, and by how much.
 
   :param monster_info: a list containing monster information
-  :param amount:  number showing how much the monster was hurt
-  :precondition: the monster_info must contains a list containing monster information,
+  :param amount: a number showing how much the monster was hurt
+  :precondition: the monster_info must contain a list containing monster information,
     the number must be an positive integer that is bigger than 0
-  :postcondition: Display a message telling which monster was hurt by the character and how much
+  :postcondition: Display a string message telling the user which monster was hurt by the character and by how much
   :return: a string message
   """
   print(f"\033[1;32mYou slashed the {monster_info[monster.MONSTER_NAME()]}, and it lose {amount} HP\033[0m")
@@ -110,8 +110,8 @@ def monster_appear(monster_info):
   Telling the user which specific monster the character meet.
 
   :param monster_info: a list containing monster information
-  :precondition: the monster_info must contains a list containing monster information
-  :postcondition: Display a message telling which monster the character meet
+  :precondition: the monster_info must contain a list containing monster information
+  :postcondition: Display a string message telling the user which monster the character meet
   :return: a string message
   """
   print(f"\033[1;31mA {monster_info[monster.MONSTER_NAME()]} is looking at you maliciously\033[0m")
@@ -123,8 +123,8 @@ def character_die(monster_info):
   Tell the user the character was killed
 
   :param monster_info: a list containing monster information
-  :precondition: the monster_info must contains a list containing monster information
-  :postcondition: print two messages showing the character is killed, and game is over
+  :precondition: the monster_info must contain a list containing monster information
+  :postcondition: print two string messages showing the character was killed, and game is over
   :return: two string messages
   """
   print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} killed you")
@@ -137,8 +137,8 @@ def monster_die(monster_info):
   Tell the user the monster was killed
 
   :param monster_info: a list containing monster information
-  :precondition: the monster_info must contains a list containing monster information
-  :postcondition: print a message showing the monster is killed
+  :precondition: the monster_info must contain a list containing monster information
+  :postcondition: print a string message showing the monster was killed
   :return: a string message
   """
   print(f"\033[1;32mThe {monster_info[monster.MONSTER_NAME()]} has been killed\033[0m")
@@ -151,7 +151,7 @@ def character_health(character_info):
 
   :param character_info: a list containing character information
   :precondition: the character_info must contains a list containing character information
-  :postcondition: print a message showing the character HP
+  :postcondition: print a string message showing the character HP
   :return: a string message
   """
   print("\033[1;32mYour HP is {0} now\033[0m".format(character_info[user.HEALTH()]))
