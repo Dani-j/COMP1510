@@ -10,6 +10,12 @@ import user
 import monster
 
 
+"""
+Python font colored string：
+\033[{display_type};{forgeground_color];[background_color]m + ：\033[0m
+"""
+
+
 def welcome(character_info):
   """
   Display welcome message.
@@ -78,7 +84,6 @@ def monster_appear(monster_info):
   """
   print(f"\033[1;31mA {monster_info[monster.MONSTER_NAME()]} is looking at you maliciously\033[0m")
   
-   
 
 
 def character_die(monster_info):
@@ -114,8 +119,7 @@ def character_health(character_info):
 
   :param character_info: a list containing character information
   :precondition: the character_info must contains a list containing character information
-  :postcondition:
-  :return:
+  :postcondition: print a message showing the character HP
+  :return: a string message
   """
   print("\033[1;32mYour HP is {0} now\033[0m".format(character_info[user.HEALTH()]))
-
