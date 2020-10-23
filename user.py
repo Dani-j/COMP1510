@@ -127,94 +127,94 @@ def heal(character_info):
 
 
 def hurt(character_info, amount):
-    """
-    Decrease the character health point and check if the character is dead.
+  """
+  Decrease the character health point and check if the character is dead.
 
-    :param character_info: A list that contains character information
-    :param amount: The amount of health should be decreased
-    :precondition: The character_info must contains correct character information, 
-      the amount must be a positive integer
-    :postcondition: Change character health point and return the charactor status
-    :return: True or False
+  :param character_info: A list that contains character information
+  :param amount: The amount of health should be decreased
+  :precondition: The character_info must contains correct character information, 
+    the amount must be a positive integer
+  :postcondition: Change character health point and return the charactor status
+  :return: True or False
 
-    >>> character_info = ["James", 5, [1, 2]]
-    >>> hurt(character_info, 2)
-    False
-    >>> character_info = ["James", 5, [1, 2]]
-    >>> hurt(character_info, 10)
-    True
-    """
-    # Decrase specific amount of health point
-    character_info[HEALTH()] -= amount
+  >>> character_info = ["James", 5, [1, 2]]
+  >>> hurt(character_info, 2)
+  False
+  >>> character_info = ["James", 5, [1, 2]]
+  >>> hurt(character_info, 10)
+  True
+  """
+  # Decrase specific amount of health point
+  character_info[HEALTH()] -= amount
 
-    # Return False if character is dead
-    return character_info[HEALTH()] <= 0
+  # Return False if character is dead
+  return character_info[HEALTH()] <= 0
 
 
 def move(character_info, direction, game_map):
-    """
-    Try to change the character's position and check if the direction is right.
+  """
+  Try to change the character's position and check if the direction is right.
 
-    :param character_info: A list that contains character information
-    :param direction: A string represent the direction chosen by the user
-    :param game_map: A map list that is a 5 x 5 matrix
-    :precondition: The character_info must contains correct character information;
-      The direction must be "left", "right", "up" or down;
-      The game_map must be a list that is a 5 x 5 matrix
-    :postcondition: Change character position if possible and return the result
-    :return: A boolean values shows if the direction is valid
+  :param character_info: A list that contains character information
+  :param direction: A string represent the direction chosen by the user
+  :param game_map: A map list that is a 5 x 5 matrix
+  :precondition: The character_info must contains correct character information;
+    The direction must be "left", "right", "up" or down;
+    The game_map must be a list that is a 5 x 5 matrix
+  :postcondition: Change character position if possible and return the result
+  :return: A boolean values shows if the direction is valid
 
-    >>> character_info = ["James", 5, [0, 0]]
-    >>> game_map = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [0, 4], [1, 4], [2, 4], [3, 4], [4, 4]]
-    >>> move(character_info, "right", game_map)
-    True
-    >>> move(character_info, "up", game_map)
-    False
-    """
-    # Get the previous position from the character_info
-    position = get_character_position(character_info)
+  >>> character_info = ["James", 5, [0, 0]]
+  >>> game_map = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [0, 4], [1, 4], [2, 4], [3, 4], [4, 4]]
+  >>> move(character_info, "right", game_map)
+  True
+  >>> move(character_info, "up", game_map)
+  False
+  """
+  # Get the previous position from the character_info
+  position = get_character_position(character_info)
 
-    # Move
-    if "left" == direction:
-        position[map.LONGITUDE()] -= 1
-    elif "right" == direction:
-        position[map.LONGITUDE()] += 1
-    elif "up" == direction:
-        position[map.LATITUDE()] -= 1
-    elif "down" == direction:
-        position[map.LATITUDE()] += 1
-    else:
-        return False
-
-    # If the new position is valid, update the character_info and return
-    if map.valid_move(game_map, position):
-        character_info[POSITION()] = position
-        return True
-
-    # Return false if the new position is not valid
+  # Move
+  if "left" == direction:
+    position[map.LONGITUDE()] -= 1
+  elif "right" == direction:
+    position[map.LONGITUDE()] += 1
+  elif "up" == direction:
+    position[map.LATITUDE()] -= 1
+  elif "down" == direction:
+    position[map.LATITUDE()] += 1
+  else:
     return False
+
+  # If the new position is valid, update the character_info and return
+  if map.valid_move(game_map, position):
+    character_info[POSITION()] = position
+    return True
+
+  # Return false if the new position is not valid
+  return False
 
 
 def get_character_choice(tip):
-    """
-    Get the command of the user from stdio 
+  """
+  Get the command of the user from stdio 
 
-    :param tip: A string, the message to be shown to prompt the the user to input
-    :precondition: The parameter tip must be a string
-    :postcondition: Return the user command if the command is not "quit"
-    :return: None if the user typed "quit", or else return what the user typed
-    """
-    command = input(tip).strip().lower()
-    if "quit" == command:
-        return None
-    else:
-        return command
+  :param tip: A string, the message to be shown to prompt the the user to input
+  :precondition: The parameter tip must be a string
+  :postcondition: Return the user command if the command is not "quit"
+  :return: None if the user typed "quit", or else return what the user typed
+  """
+  command = input(tip).strip().lower()
+  if "quit" == command:
+    return None
+  else:
+    return command
 
 
 def main():
-    """Drive the program."""
-    doctest.testmod(verbose=True)
+  """Drive the program."""
+  doctest.testmod(verbose=True)
 
 
 if __name__ == '__main__':
-    main()
+  main()
