@@ -107,7 +107,7 @@ def attack(character_choice, monster_choice, character_info, monster_info):
       message.monster_die(monster_info)
       
       return MONSTER_DIE()  # the battle result is that the monster died 
-  else:  # when both attacks are equally strong (i.e. number is same)
+  else:  # when both attacks are equally strong (i.e. numbers are same)
     message.monster_hurted(monster_info, character_choice) 
     
     return DRAW_GAME()  # the battle result is a draw
