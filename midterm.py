@@ -7,11 +7,12 @@ Date: October 21, 2020
 """
 
 
+import game
+
+
 def main():
     """Drives the program."""
-
-    # Enter your code here.
-    print("Hello, Chris!")
+    game.run()
 
 
 if __name__ == "__main__":

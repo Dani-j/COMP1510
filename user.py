@@ -119,8 +119,6 @@ def hurt(character_info, amount):
 def move(character_info, direction, game_map):
 
 
-def random_move(character_info, game_map):  # remove this function since we won't use it?
-
 
 def get_character_choice(tip):
 

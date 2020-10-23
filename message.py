@@ -28,6 +28,14 @@ def welcome(character_info):
 
 
 def wrong_direction(character_info):
+    """
+
+    :param character_info: a list containing character information
+    :precondition:
+    :postcondition:
+    :return:
+    """
+    print("\033[1;31mSorry, %s. You cannot go that way.\033[0m" % user.get_character_name(character_info))
     
 
 def character_hurted(monster_info, amount):
