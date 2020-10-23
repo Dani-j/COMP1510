@@ -172,11 +172,11 @@ def move(character_info, direction, game_map):
   :param character_info: a list that contains character information
   :param direction: a string represent the direction chosen by the user
   :param game_map: a map list that has 25 positions, which are lists
-  :precondition: the character_info must contains correct character information;
-    The direction must be "left", "right", "up" or down;
-    The game_map must be a list that is a 5 x 5 matrix
+  :precondition: the character_info must contain correct character information;
+    The direction must be "left", "right", "up" or down; The game_map must be a list
+    of 25 lists represnting positions
   :postcondition: change character position if possible and return the result
-  :return: A boolean values shows if the direction is valid
+  :return: a boolean value showing if the direction is valid
 
   >>> character_info = ["James", 5, [0, 0]]
   >>> game_map = [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]
@@ -185,7 +185,7 @@ def move(character_info, direction, game_map):
   >>> move(character_info, "up", game_map)
   False
   """
-  # Get the previous position from the character_info
+  # Get the current position from the character_info
   position = get_character_position(character_info)[:]
 
   # Move
@@ -211,12 +211,12 @@ def move(character_info, direction, game_map):
 
 def get_character_choice(tip):
   """
-  Get the command of the user from stdio
+  Get the command from the user.
 
-  :param tip: A string, the message to be shown to prompt the the user to input
-  :precondition: The parameter tip must be a string
-  :postcondition: Return the user command if the command is not "quit"
-  :return: None if the user typed "quit", or else return what the user typed
+  :param tip: a string, the message to be shown to prompt the the user to input
+  :precondition: the parameter tip must be a string
+  :postcondition: return the user command if the command is not "quit"
+  :return: none if the user typed "quit", or else return what the user typed
   """
   command = input(tip).strip().lower()
   if "quit" == command:

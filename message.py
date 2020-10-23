@@ -62,7 +62,7 @@ def welcome(character_info):
   print("If you are scared, type 'Quit' and press 'Enter'.")
   print("Watch out for your footsteps, it may attract unknown monsters.\033[0m")
   print("")
-  print("However, you hear nothing except your own heartbeat.")
+  print("However, you hear nothing but your own heartbeat.")
 
 
 def wrong_direction(character_info):
