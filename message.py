@@ -31,6 +31,21 @@ From: https://www.cnblogs.com/daofaziran/p/9015284.html
 """
 
 
+def opening():
+  """
+  Display opening message.
+
+  :precondition: None
+  :postcondition: Dispaly an opening message
+  :return: None
+  """
+  print("\033[1;35mOnce upon a time, there is a Kingdom of far far away.")
+  print("One day, the princess of the kingdom was taken away by the devil.")
+  print("The king looked for warriors to rescue the princess.")
+  print("As a true warrior, you decide to go to rescue the princess immediately.\033[0m")
+  print("")
+
+
 def welcome(character_info):
   """
   Display welcome message.
@@ -41,10 +56,13 @@ def welcome(character_info):
     message containing character name
   :return: four welcome messages
   """
-  print("\033[1;35mWelcome to SUD, %s." % user.get_character_name(character_info))
-  print("You're now standing in the center of a dark forest.")
+  print("\033[1;35mWelcome to the Kingdom of Far Far Away, %s." % user.get_character_name(character_info))
+  print("You're now standing in the center of a dark forest.")  
   print("Type 'up', 'down', 'left' or 'right' and press 'Enter' to move.")
-  print("If you want to exit, type 'Quit' and press 'Enter'.\033[0m")
+  print("Watch out for your footsteps, it may attract unknown monsters.")
+  print("If you are scared, type 'Quit' and press 'Enter'.\033[0m")
+  print("")
+  print("However, you hear nothing exept your heart beat.")
 
 
 def wrong_direction(character_info):
@@ -85,7 +103,6 @@ def monster_hurted(monster_info, amount):
   :return: a string message
   """
   print(f"\033[1;32mYou slashed the {monster_info[monster.MONSTER_NAME()]}, and it lose {amount} HP\033[0m")
-
 
 
 def monster_appear(monster_info):

@@ -57,6 +57,9 @@ def run(game_logic):
   :postcondition: Exit if goal has been achieved
   :return: None
   """
+  # Display the opening message
+  message.opening()
+
   # Create the game map
   game_map = map.create_map()
 

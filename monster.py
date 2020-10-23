@@ -15,7 +15,7 @@ def MONSTER_NAME():
   Return the index of monster name in the monster information list.
 
   :precondition: none
-  :postcondition: return the constant index where the moster name is stored
+  :postcondition: return 0, the constant index where the moster name is stored
     in the moster information list
   :return: an integer, the constant index of monster name
   """

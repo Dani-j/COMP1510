@@ -96,7 +96,7 @@ def create_character():
   :return: A list contains character information
   """
   character_info = []
-  character_name = input("\033[1;34mPlease input your character name:\033[0m").strip()
+  character_name = input("\033[1;34mNow, tell me what's your name:\033[0m").strip()
   if "quit" == character_name:
     return None
   character_info.insert(CHARACTERNAME(), character_name)  # put character name in the character_info list
