@@ -123,7 +123,7 @@ def heal(character_info):
     character_info[HEALTH()] += 2
 
     if character_info[HEALTH()] > MAX_HEALTH():
-        # If the character health is more than maximum after add 2, character health become maximum HP
+        # The character health point cannot be greater than 10
         character_info[HEALTH()] = MAX_HEALTH()
 
 def hurt(character_info, amount):
