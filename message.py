@@ -31,9 +31,9 @@ def wrong_direction(character_info):
     """
 
     :param character_info: a list containing character information
-    :precondition:
-    :postcondition:
-    :return:
+    :precondition: the character_info must contains a list containing character information
+    :postcondition: display a message telling the user typed a wrong direction
+    :return: a string message
     """
     print("\033[1;31mSorry, %s. You cannot go that way.\033[0m" % user.get_character_name(character_info))
     

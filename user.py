@@ -111,17 +111,30 @@ def create_character():
 
 
 def heal(character_info):
+    """
+    Increase 2 helath point for the character until character health is 10.
 
+    :param character_info: A list that contains character information
+    :precondition: The character_info must contains correct character information
+    :postcondition: Update the character health point correctly
+    :return: None
+    """
+    # Add 2 health point first
+    character_info[HEALTH()] += 2
+
+    if character_info[HEALTH()] > MAX_HEALTH():
+        # If the character health is more than maximum after add 2, character health become maximum HP
+        character_info[HEALTH()] = MAX_HEALTH()
 
 def hurt(character_info, amount):
-
+  return
 
 def move(character_info, direction, game_map):
-
+  return
 
 
 def get_character_choice(tip):
-
+  return
 
 def main():
     """Drive the program."""
