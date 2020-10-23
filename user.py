@@ -153,7 +153,35 @@ def hurt(character_info, amount):
 
 
 def move(character_info, direction, game_map):
-  return
+    """
+    Try to change the character's position and check if the direction is right.
+
+    :param character_info: A list that contains character information
+    :param direction: A string represent the direction chosen by the user
+    :param game_map: A map list that is a 5 x 5 matrix
+    :precondition: The character_info must contains correct character information;
+      The direction must be "left", "right", "up" or down;
+      The game_map must be a list that is a 5 x 5 matrix
+    :postcondition: Change character position if possible and return the result
+    :return: A boolean values shows if the direction is available
+    """
+    position = get_character_position(character_info)
+    if "left" == direction:
+        position[map.LONGITUDE()] -= 1
+    elif "right" == direction:
+        position[map.LONGITUDE()] += 1
+    elif "up" == direction:
+        position[map.LATITUDE()] -= 1
+    elif "down" == direction:
+        position[map.LATITUDE()] += 1
+    else:
+        return False
+
+    if map.valid_move(game_map, position):
+        character_info[POSITION()] = position
+        return True
+
+    return False
 
 
 def get_character_choice(tip):
