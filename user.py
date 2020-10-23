@@ -89,7 +89,24 @@ def get_character_position(character_info):
 
 
 def create_character():
+    """
+    Prompt the user to create the character profile which contains name, health point and position
+
+    :precondition: None
+    :postcondition: Return a list contains character information
+    :return: A list contains character information
+    """
     character_info = []
+    character_name = input("\033[1;34mPlease input your character name:\033[0m").strip()
+    if not character_name:  # when the character only enter space(s)
+        print("please enter at list one character.")
+        create_character()
+    character_info.insert(CHARACTERNAME(), character_name)  # put character name in the character_info list
+    character_info.insert(HEALTH(), 10)  # put character HP in the character_info list, whose initial value is 10
+    character_info.insert(POSITION(), [2, 2])  # put character position in the list, the initial position is [2, 2]
+
+    message.welcome(character_info)  # display welcome messages
+
     return character_info
 
 
