@@ -197,7 +197,19 @@ def move(character_info, direction, game_map):
 
 
 def get_character_choice(tip):
-  return
+    """
+    Get the command of the user from stdio 
+
+    :param tip: A string, the message to be shown to prompt the the user to input
+    :precondition: The parameter tip must be a string
+    :postcondition: Return the user command if the command is not "quit"
+    :return: None if the user typed "quit", or else return what the user typed
+    """
+    command = input(tip).strip().lower()
+    if "quit" == command:
+        return None
+    else:
+        return command
 
 
 def main():

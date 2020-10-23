@@ -82,21 +82,30 @@ def monster_appear(monster_info):
 
 
 def character_die(monster_info):
-"""
+  """
   Tell the user the character was killed
 
   :param monster_info: a list containing monster information
   :precondition: the monster_info must contains a list containing monster information
-  :postcondition: print messages showing the character is killed, and game is over
-  :return: a string message
-"""
-print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} killed you")
-print("GAME OVER\033[0m")
+  :postcondition: print two messages showing the character is killed, and game is over
+  :return: two string messages
+  """
+  print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} killed you")
+  print("GAME OVER\033[0m")
    
 
 
 def monster_die(monster_info):
-  return
+  """
+  Tell the user the monster was killed
+
+  :param monster_info: a list containing monster information
+  :precondition: the monster_info must contains a list containing monster information
+  :postcondition: print a message showing the monster is killed
+  :return: a string message 
+  """
+  print(f"\033[1;32mThe {monster_info[monster.MONSTER_NAME()]} has been killed\033[0m")
+
 
 
 def character_health(character_info):
