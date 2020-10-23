@@ -82,7 +82,7 @@ def attack(character_choice, monster_choice, character_info, monster_info):
   """
   Hurt the one whose choice number is less and return the battle result
 
-  :param character_choice: a number showing 
+  :param character_choice: a positive integer showing how stong the character attack is 
   :param monster_choice:
   :param character_info:
   :param monster_info:
