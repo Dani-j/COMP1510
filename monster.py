@@ -69,7 +69,7 @@ def create_monster():
   if MONSTER_EXISTS() != x:  # x != 1, a monster won't appear
     return None
 
-  names = ["Dragon", "Zombie", "Python", "Jack the Ripper"]  # will be more monsters if we have more time
+  names = ("Dragon", "Zombie", "Python", "Jack the Ripper")  # will be more monsters if we have more time
   monster = [random.choice(names), MAX_HEALTH()]  # randomly generate a monster
   return monster
 

@@ -39,14 +39,14 @@ def create_map():
   :return: A list that contain position information
 
   >>> create_map()
-  [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [0, 4], [1, 4], [2, 4], [3, 4], [4, 4]]
+  [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0), (0, 1), (1, 1), (2, 1), (3, 1), (4, 1), (0, 2), (1, 2), (2, 2), (3, 2), (4, 2), (0, 3), (1, 3), (2, 3), (3, 3), (4, 3), (0, 4), (1, 4), (2, 4), (3, 4), (4, 4)]
   """
   # Define the map matrix variable
   map = []
   # Use a nested loop to fill the map matrix
   for latitude in range(0, 5):
     for longitude in range(0, 5):
-      position = [longitude, latitude]
+      position = (longitude, latitude)
       map.append(position)
   return map
 
@@ -56,17 +56,17 @@ def valid_move(map, position):
   Check if the movement is valid.
 
   :param map: A list that contain position information
-  :param position: A list that containing latitude and longitude
+  :param position: A tuple that containing latitude and longitude
   :precondition: The parameter map is a list representing a map matrix,
-    the parameter position is a list containing the next position of the character
+    the parameter position is a tuple containing the next position of the character
   :postcondition: Check if the next position is inside of the map and return the result
   :return: A boolean values showing if the next move is possible
 
-  >>> map = [[1,2], [2,3]]
-  >>> position = [1,2]
+  >>> map = [(1,2), (2,3)]
+  >>> position = (1,2)
   >>> valid_move(map, position)
   True
-  >>> position = [5,6]
+  >>> position = (5,6)
   >>> valid_move(map, position)
   False
   """

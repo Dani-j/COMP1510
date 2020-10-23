@@ -12,9 +12,8 @@ import game
 
 def main():
   """Drives the program."""
-  game.run()
+  game.run(game.game_process)
 
 
 if __name__ == "__main__":
   main()
-

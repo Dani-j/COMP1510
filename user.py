@@ -97,14 +97,14 @@ def create_character():
   """
   character_info = []
   character_name = input("\033[1;34mPlease input your character name:\033[0m").strip()
-  if not character_name:  # when the character only enter space(s)
-    print("please enter at least one character.")
-    create_character()
+  if "quit" == character_name:
+    return None
   character_info.insert(CHARACTERNAME(), character_name)  # put character name in the character_info list
   character_info.insert(HEALTH(), 10)  # put character HP in the character_info list, whose initial value is 10
   character_info.insert(POSITION(), [2, 2])  # put character position in the list, the initial position is [2, 2]
 
   message.welcome(character_info)  # display welcome messages
+  map.print_map(character_info[POSITION()]) # display the map
 
   return character_info
 
@@ -132,7 +132,7 @@ def hurt(character_info, amount):
 
   :param character_info: A list that contains character information
   :param amount: The amount of health should be decreased
-  :precondition: The character_info must contains correct character information, 
+  :precondition: The character_info must contains correct character information,
     the amount must be a positive integer
   :postcondition: Change character health point and return the charactor status
   :return: True or False
@@ -165,7 +165,7 @@ def move(character_info, direction, game_map):
   :return: A boolean values shows if the direction is valid
 
   >>> character_info = ["James", 5, [0, 0]]
-  >>> game_map = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [0, 4], [1, 4], [2, 4], [3, 4], [4, 4]]
+  >>> game_map = [(0, 0), (1, 0), (2, 0), (3, 0), (4, 0)]
   >>> move(character_info, "right", game_map)
   True
   >>> move(character_info, "up", game_map)
@@ -187,7 +187,7 @@ def move(character_info, direction, game_map):
     return False
 
   # If the new position is valid, update the character_info and return
-  if map.valid_move(game_map, position):
+  if map.valid_move(game_map, tuple(position)):
     character_info[POSITION()] = position
     return True
 
@@ -197,7 +197,7 @@ def move(character_info, direction, game_map):
 
 def get_character_choice(tip):
   """
-  Get the command of the user from stdio 
+  Get the command of the user from stdio
 
   :param tip: A string, the message to be shown to prompt the the user to input
   :precondition: The parameter tip must be a string
