@@ -137,6 +137,13 @@ def hurt(character_info, amount):
       the amount must be a positive integer
     :postcondition: Change character health point and return the charactor status
     :return: True or False
+
+    >>> character_info = ["James", 5, [1, 2]]
+    >>> hurt(character_info, 2)
+    False
+    >>> character_info = ["James", 5, [1, 2]]
+    >>> hurt(character_info, 10)
+    True
     """
     # Decrase specific amount of health point
     character_info[HEALTH()] -= amount

@@ -43,9 +43,9 @@ def character_hurted(monster_info, amount):
     """
     Tell the user that the character was hurt, how much and by whom.
 
-    :param monster_info: a list containing character information
+    :param monster_info: a list containing monster information
     :param amount: a number showing how much the character was hurt
-    :precondition: the character_info must contains a list containing character information,
+    :precondition: the monster_info must contains a list containing monster information,
         the number must be an positive integer that is bigger than 0
     :postcondition: Display a message telling the character was hurt, how much and by whom
     :return: a string message
@@ -53,10 +53,19 @@ def character_hurted(monster_info, amount):
     print(f"\033[1;31mThe {monster_info[monster.MONSTER_NAME()]} bite you, and you lose {amount} HP\033[0m")
 
 
-   
-
-
 def monster_hurted(monster_info, amount):
+   """
+  Display the specific monster that is hurt by the character, and how much.
+
+  :param monster_info: a list containing monster information
+  :param amount:  number showing how much the monster was hurt
+  :precondition: the monster_info must contains a list containing monster information,
+    the number must be an positive integer that is bigger than 0
+  :postcondition: Display a message telling which monster was hurt by the character and how much
+  :return: a string message
+  """
+  print(f"\033[1;32mYou slashed the {monster_info[monster.MONSTER_NAME()]}, and it lose {amount} HP\033[0m")
+
  
 
 def monster_appear(monster_info):
