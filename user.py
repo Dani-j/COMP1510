@@ -163,9 +163,19 @@ def move(character_info, direction, game_map):
       The direction must be "left", "right", "up" or down;
       The game_map must be a list that is a 5 x 5 matrix
     :postcondition: Change character position if possible and return the result
-    :return: A boolean values shows if the direction is available
+    :return: A boolean values shows if the direction is valid
+
+    >>> character_info = ["James", 5, [0, 0]]
+    >>> game_map = [[0, 0], [1, 0], [2, 0], [3, 0], [4, 0], [0, 1], [1, 1], [2, 1], [3, 1], [4, 1], [0, 2], [1, 2], [2, 2], [3, 2], [4, 2], [0, 3], [1, 3], [2, 3], [3, 3], [4, 3], [0, 4], [1, 4], [2, 4], [3, 4], [4, 4]]
+    >>> move(character_info, "right", game_map)
+    True
+    >>> move(character_info, "up", game_map)
+    False
     """
+    # Get the previous position from the character_info
     position = get_character_position(character_info)
+
+    # Move
     if "left" == direction:
         position[map.LONGITUDE()] -= 1
     elif "right" == direction:
@@ -177,10 +187,12 @@ def move(character_info, direction, game_map):
     else:
         return False
 
+    # If the new position is valid, update the character_info and return
     if map.valid_move(game_map, position):
         character_info[POSITION()] = position
         return True
 
+    # Return false if the new position is not valid
     return False
 
 
