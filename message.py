@@ -109,4 +109,13 @@ def monster_die(monster_info):
 
 
 def character_health(character_info):
-  return
+  """
+  Display the character HP
+
+  :param character_info: a list containing character information
+  :precondition: the character_info must contains a list containing character information
+  :postcondition:
+  :return:
+  """
+  print("\033[1;32mYour HP is {0} now\033[0m".format(character_info[user.HEALTH()]))
+

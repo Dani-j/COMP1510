@@ -6,7 +6,6 @@ Date: October 23, 2020
 """
 
 
-import random
 import map
 import message
 import doctest
