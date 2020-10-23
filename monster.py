@@ -1,5 +1,14 @@
+"""
+This file contains the functions related to monster information.
+
+Authors: James (Hang) Liu, Dani (Danfeng) Jin
+Date: October 23, 2020
+"""
+
+
 import random
 import doctest
+
 
 def MONSTER_NAME():
     """
@@ -58,13 +67,21 @@ def hurt(monster_info, amount):
     """
     Decrease the monster HP and check if monster HP is smaller than 0 or not.
 
-    :param monster_info: a 
-    :param amount:
-    :precondition:
-    :postcondition:
-    :return:
+    :param monster_info: a list where stored the monster information
+    :param amount: the amount of HP that is decreased by the character's attack
+    :precondition: monster_info is a list containing the monster information,
+      amount is a integer means the amount of HP that would be decreased
+    :postcondition: return a booleen value showing the status of monster HP
+    :return: Ture or False, showing if the moster HP is smaller than 0 or not
 
-    >>> 
+    >>> monster_info = ["python", 10]
+    >>> amount = 2 
+    >>> hurt(monster_info, amount)
+    True
+    >>> monster_info = ["python", 1]
+    >>> amount = 2 
+    >>> hurt(monster_info, amount)
+    False
     """
     # return False if character is dead
     monster_info[HEALTH()] -= amount

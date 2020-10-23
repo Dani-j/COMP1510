@@ -2,7 +2,7 @@
 This file contains the functions related to the map.
 
 Authors: James (Hang) Liu, Dani (Danfeng) Jin
-Date: October 23, 2020D
+Date: October 23, 2020
 """
 
 import doctest
